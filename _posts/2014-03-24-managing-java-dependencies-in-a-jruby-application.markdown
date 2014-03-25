@@ -39,6 +39,9 @@ require 'lock_jar/bundler'
 
 And everytime you run bundle update/install it will also check your java dependencies and download them if necessary.
 
+Thanks [Aaron][aaron] for the review!
+
 
 [astyanax]: https://github.com/Netflix/astyanax
 [lockjar]: https://github.com/mguymon/lock_jar
+[aaron]: https://github.com/GrooveStomp
