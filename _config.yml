@@ -66,3 +66,10 @@ kramdown:
 
 redcloth:
   hard_breaks: true
+
+name: Lucas Allan Amorim
+url: http://www.lucasallan.com
+description: Lucas Allan Blog
+twitter: lucasallan
+github: lucasallan
+gravatar_url: http://www.gravatar.com/avatar/ad4185612942e1d6941f3a6a531b0d0a.png
