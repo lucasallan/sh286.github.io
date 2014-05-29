@@ -22,7 +22,7 @@ framework on top of Rack. [Grape][grape] is a great and powerful micro-framework
 
 Everything was working just fine and running with [JRuby][jruby] and [Puma][puma] until as part of our QA process we did several requests to an API endpoint; then:
 
-```
+{% highlight ruby %}
 [2014-05-26T13:54:00.898000 #99234]  WARN -- : could not obtain a database connection within 5.000 seconds (waited 5.001 seconds)
 active_record/connection_adapters/abstract/connection_pool.rb:190:in `wait_poll'
 org/jruby/RubyKernel.java:1501:in `loop'
@@ -33,7 +33,7 @@ active_record/connection_adapters/abstract/connection_pool.rb:136:in `poll'
 org/jruby/RubyProc.java:271:in `call'
 /Users/lucasallan/.rbenv/versions/jruby-1.7.12/lib/ruby/gems/shared/gems/puma-2.8.2-java/lib/puma/thread_pool.rb:92:in `spawn_thread'
 127.0.0.1 - - [26/May/2014 13:54:00] "POST /domains HTTP/1.1" 500 82 5.0530
-```
+{% endhighlight %}
 After spending some time digging into it I figured out that the exception happens because for our application isn't releasing the db connection when finished with it.
 
 I tried some solutions like using `ActiveRecord::Base.clear_active_connections!`
@@ -44,11 +44,11 @@ However, active_record does have a way to close the connection and return it to 
 So if I move all my code to a block and pass it to `ActiveRecord::Base.connection_pool.with_connection` then I won't have an issue.
 Example:
 
-```
+{% highlight ruby %}
 ActiveRecord::Base.connection_pool.with_connection do
   User.update_attribute(:name, 'lucas')
 end
-```
+{% endhighlight %}
 
 Unfortunately it's not very handy to pass all my ActiveRecord calls to this block.
 
@@ -57,7 +57,7 @@ I will end up running out of db connections and an exception will be raised.
 
 To fix it, I created a simple monkey patch that will make all the active_record calls use this block by default:
 
-```Ruby
+{% highlight ruby %}
 module ActiveRecord
   class Base
     singleton_class.send(:alias_method, :original_connection, :connection)
@@ -69,7 +69,7 @@ module ActiveRecord
     end
   end
 end
-```
+{% endhighlight %}
 
 For more information, visit: [http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html][ar-doc]
 
