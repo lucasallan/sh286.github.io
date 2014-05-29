@@ -4,24 +4,23 @@ title:  "Fixing ActiveRecord concurrency issues in a rack application (without R
 date:   2014-05-26 16:49:00
 ---
 
-In the last 6 months we have been working to split out main application into small isolated service applications.
+In the last 6 months we have been working to split out our main application into small isolated service applications.
 
-As part of this strategy we need an application that it's going to provide information about some services -
-all the applications will access it through an internal API.
+As part of this strategy we need an application that's going to provide information about some services -
+all the clients will access it through an internal API.
 This is going to be a small application to respond to http request and read/write data into a database.
 
-While Rails it's a great solution for mostly of the applications, doesn't make any sense to use Rails for a small application like that.
+While Rails is a great solution for mostly of the applications, it doesn't make any sense to use Rails for a small application like that.
 
-Although Ruby it's still my favorite language and ActiveRecord is a great ORM solution -
-so doesn't make any sense to not use Ruby either.
+Although Ruby is still my favourite language, and ActiveRecord is a great ORM solution, so we would like to continue using Ruby..
 
 
 ### [Rack][rack], [Grape][[grape] and [ActiveRecord][ar]
 
-We have decided to build a Rack application with ActiveRecord, although [Rack][rack] doesn't provide a good DSL to build your HTTP endpoints. For our luck, some fellows (from [Intridea][intridea]) built a great API
+We have decided to build a Rack application with ActiveRecord, although [Rack][rack] doesn't provide a good DSL to build your HTTP endpoints. Lucky for us, some fellows (from [Intridea][intridea]) built a great API
 framework on top of Rack. [Grape][grape] is a great and powerful micro-framework for creating REST-like APIs in Ruby.
 
-Everything were working just fine and running with [JRuby][jruby] and [Puma][puma]. Until as part of our QA process we did several requests to an API endpoint and then:
+Everything was working just fine and running with [JRuby][jruby] and [Puma][puma] until as part of our QA process we did several requests to an API endpoint; then:
 
 ```
 [2014-05-26T13:54:00.898000 #99234]  WARN -- : could not obtain a database connection within 5.000 seconds (waited 5.001 seconds)
@@ -35,14 +34,14 @@ org/jruby/RubyProc.java:271:in `call'
 /Users/lucasallan/.rbenv/versions/jruby-1.7.12/lib/ruby/gems/shared/gems/puma-2.8.2-java/lib/puma/thread_pool.rb:92:in `spawn_thread'
 127.0.0.1 - - [26/May/2014 13:54:00] "POST /domains HTTP/1.1" 500 82 5.0530
 ```
-After spent some time digging into it I figured out that the exception happens because for our application it's not releasing the db connection after use it.
+After spending some time digging into it I figured out that the exception happens because for our application isn't releasing the db connection when finished with it.
 
-I tried some solutions like use `ActiveRecord::Base.clear_active_connections!`
-inside a `after` block after each request. But it didn't work.
+I tried some solutions like using `ActiveRecord::Base.clear_active_connections!`
+inside an `after` block after each request, but it didn't work.
 
-Although, active_record does have a way to close the connection and return it to the connection pool: `ActiveRecord::Base.connection_pool.with_connection`
+However, active_record does have a way to close the connection and return it to the connection pool: `ActiveRecord::Base.connection_pool.with_connection`
 
-So if I move all my code to a block and pass it to `ActiveRecord::Base.connection_pool.with_connection` then I won't have any issue.
+So if I move all my code to a block and pass it to `ActiveRecord::Base.connection_pool.with_connection` then I won't have an issue.
 Example:
 
 ```
@@ -53,10 +52,10 @@ end
 
 Unfortunately it's not very handy to pass all my ActiveRecord calls to this block.
 
-I can easily forget to pass it and every time this code being executed I'd lose one of my connections and after a few times
+I can easily forget to pass it and every time this code gets executed I'd lose one of my connections. After a few times
 I will end up running out of db connections and an exception will be raised.
 
-So to fix it, I created a simple monkey patch that will make all the active_records calls use this block by default:
+To fix it, I created a simple monkey patch that will make all the active_record calls use this block by default:
 
 ```Ruby
 module ActiveRecord
