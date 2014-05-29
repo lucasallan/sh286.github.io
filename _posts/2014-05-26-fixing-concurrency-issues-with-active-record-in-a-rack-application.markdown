@@ -10,11 +10,9 @@ As part of this strategy we need an application that's going to provide informat
 all the clients will access it through an internal API.
 This is going to be a small application to respond to http request and read/write data into a database.
 
-While Rails is a great solution for mostly of the applications, it doesn't make any sense to use Rails for a small application like that.
+While Rails is a great solution for most of the applications, it doesn't make any sense to use Rails for a small application like that.
 
-Although Ruby is still my favourite language, and ActiveRecord is a great ORM solution, so we would like to continue using Ruby..
-
-
+We would like to continue using ruby since ActiveRecord is a great ORM and Ruby is still my favorite language.
 ### [Rack][rack], [Grape][[grape] and [ActiveRecord][ar]
 
 We have decided to build a Rack application with ActiveRecord, although [Rack][rack] doesn't provide a good DSL to build your HTTP endpoints. Lucky for us, some fellows (from [Intridea][intridea]) built a great API
