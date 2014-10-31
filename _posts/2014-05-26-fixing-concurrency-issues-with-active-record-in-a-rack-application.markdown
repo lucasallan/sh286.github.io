@@ -71,6 +71,16 @@ end
 
 For more information, visit: [http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html][ar-doc]
 
+#### Note (October 31th 2014)
+
+Someone pointed out on twitter that the solution described here isn't the best approach for the problem.
+The ideally solution would be to use ActiveRecord::ConnectionAdapters::ConnectionManagement middleaware, something like this in your config.ru:
+{% highlight ruby %}
+use ActiveRecord::ConnectionAdapters::ConnectionManagement
+{% endhighlight %}
+
+I've tried this solution before and it didn't work out well for me.
+
 [grape]: https://github.com/intridea/grape
 [rack]: http://rack.github.io/
 [intridea]: http://www.intridea.com/
