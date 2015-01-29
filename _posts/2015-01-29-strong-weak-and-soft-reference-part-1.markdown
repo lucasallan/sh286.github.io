@@ -27,7 +27,7 @@ A weak reference is an object reference that is not strong enough to remain in m
 
 How does it work?
 
-The object is considered [weakly reachable][weakreach] when it's only reachable through a weak reference or chains of references
+The object is considered [weakly reachable][weakreach] when it's only reachable by a weak reference OR chains of references
 that include at least one weak reference. In this case, once the [GC][gc] analyzes the object and determine that it's weakly reachable, it will be deallocated.
 
 How to create a weak reference?
