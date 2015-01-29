@@ -11,8 +11,8 @@ It uses two new JVM technologies: [Truffle AST and GraalVM][graalvm].
 The language is not completely implemented yet, however it already shows good results:
 
 <img src='/images/mandelbrot-luatruffle.png'/>
-
-We're around 13x compared to [lua][lua] and as fast as [luajit][luajit].
+.
+We're around 13x faster than [Lua][lua] and about as fast as [Luajit][luajit].
 
 [luatruffle]: http://en.wikipedia.org/wiki/Pcap
 [lua]: http://www.lua.org/
