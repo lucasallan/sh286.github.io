@@ -27,8 +27,8 @@ A weak reference is an object reference that is not strong enough to remain in m
 
 How does it work?
 
-The object is considered [weekly reachable][weakreach] when it's only reachable by a weak reference or chains of references
-that include at least one weak reference. In this case, once the [GC][gc] analyzes the object and determine that it's weekly reachable, it will be deallocated.
+The object is considered [weakly reachable][weakreach] when it's only reachable through a weak reference or chains of references
+that include at least one weak reference. In this case, once the [GC][gc] analyzes the object and determine that it's weakly reachable, it will be deallocated.
 
 How to create a weak reference?
 
@@ -52,7 +52,7 @@ ref.object
 
 ## Soft Reference
 
-A soft reference is almost identical to weak reference, but they can survive to a few GC cycles before to be deallocated.
+A soft reference is almost identical to weak reference, but they can survive to a few GC cycles before being deallocated.
 
 #### Examples:
 
