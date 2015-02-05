@@ -17,7 +17,7 @@ Running Rake to measure how much time JRuby takes to load the application.
 {% endhighlight %}
 
 
-The result is terrible, 36.69 seconds to load a simple application is not something that you would like to deal every day.
+The result is terrible, 36.69 seconds to load a simple application is not something that you would like to deal with every day.
 
 ### InvokedDynamic
 The JVM provides an optimization called InvokedDynamic that speeds up steady state operation but on the other hand it really slows down startup. This is an really important optimization, but there is no big reason to use it in your development environment.
