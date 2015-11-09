@@ -116,7 +116,7 @@ Map a function over a collection and flatten the result by one-level.
 Equivalent to use `map` and then call `flatten` in the result.
 
 ```
-[ [1,2,3], [5, 7, 9], [11, 12] ].map do |items|
+[ [1,2,3], [5, 7, 9], [11, 12] ].flat_map do |items|
   items.find_all(&:even?)
 end
 => [2, 12]
