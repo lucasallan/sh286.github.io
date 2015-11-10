@@ -69,6 +69,7 @@ redcloth:
 
 name: Lucas Allan Amorim
 url: https://www.lucasallan.com
+enforce_ssl: lucasallan.com
 description: Lucas Allan Blog
 twitter: lucasallan
 github: lucasallan
