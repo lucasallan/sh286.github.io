@@ -22,7 +22,7 @@ About a year later, I started my first job as Software Developer.
 | [JRuby][jruby] |  Ruby on  JVM | core contributor |
 | [concurrent-ruby][concurrent] | 	concurrency tools |   core contributor |
 | [LuaTruffle][luatruffle] | Lua on JVM |    core contributor |
-| [Gtoll][gtool] | package management for Slackware |    core contributor |
+| [Gtool][gtool] | package management for Slackware |    core contributor |
 
 ### [PGP Public Key][mypgp]
 
