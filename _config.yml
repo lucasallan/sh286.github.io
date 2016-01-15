@@ -6,7 +6,8 @@ layouts_dir: ./_layouts
 include:     ['.htaccess']
 exclude:     []
 keep_files:  ['.git','.svn']
-gems:        []
+gems:
+  - jekyll-gist
 timezone:    nil
 encoding:    nil
 
