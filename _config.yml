@@ -1,4 +1,4 @@
-name: LucasAllan.com
+name: LucasAmorim
 source:      .
 destination: ./_site
 plugins_dir: ./_plugins
@@ -67,8 +67,8 @@ redcloth:
   hard_breaks: true
 
 name: Lucas Amorim
-url: https://www.lucasallan.com
-enforce_ssl: lucasallan.com
+url: https://www.lucasamorim.ca
+enforce_ssl: lucasamorim.ca
 description: Lucas Amorim Blog
 twitter: lucasallan
 github: lucasallan
