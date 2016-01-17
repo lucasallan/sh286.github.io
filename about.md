@@ -12,7 +12,7 @@ My interest in computers started in 2003, when I was 15 years old and I found [L
 
 I started my Bachelor's Degree in Computer Science in 2007.  That same year I also began my first job in IT as a sysadmin and released my first open source tool: [gtool][gtool]. In 2008 I started my first job as a software developer.
 
-About a year later, I started my first job as Software Developer.
+In 2008 I started my first job as a software developer.
 
 
 ### Open Source Projects
