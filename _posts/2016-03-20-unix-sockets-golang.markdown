@@ -52,7 +52,7 @@ func main() {
 
 ### Client:
 
-```Golang
+```golang
 package main
 
 import (
