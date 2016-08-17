@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mastering Ruby Enumerators - part 1"
+title:  "Mastering Ruby Enumerators"
 date:   2015-11-08 11:00:00
 ---
 
@@ -80,6 +80,7 @@ Select elements in your collection that match a criteria.
 (1..6).select(&:even?)
 => [2, 4, 6]
 ```
+
 ### bsearch
 
 For sorted arrays, use `bsearch` instead of `find`.
@@ -121,5 +122,3 @@ Equivalent to use `map` and then call `flatten` in the result.
 end
 => [2, 12]
 ```
-
-
