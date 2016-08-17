@@ -27,7 +27,7 @@ The method returns true if the block ever returns a value other than false or ni
 ### all?
 The method returns true if the block never returns false or nil.
 
-```
+```ruby
 %w[ant bear cat].all? { |word| word.length >= 3 }
 => true
 ```
@@ -36,20 +36,22 @@ The method returns true if the block never returns false or nil.
 
 Divide your collection based on the block you pass.
 
-```
+```ruby
 (1..6).partition { |v| v.even? }
 => [[2, 4, 6], [1, 3, 5]]
 ```
 
 ### reduce / inject
 Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.
-```
+
+```ruby
 (5..10).reduce(:+)
 => 45
 (5..10).inject(:+)
 => 45
 ```
-```
+
+```ruby
 (5..10).reduce { |sum, n| sum + n }
 => 45
 (5..10).inject { |sum, n| sum + n }
@@ -60,11 +62,12 @@ Combines all elements of enum by applying a binary operation, specified by a blo
 
 Returns a new array with the results of running block once for every element in enum.
 
-```
+```ruby
 [:symbol, :symbol2].collect { |s| s.to_s }
 => ["symbol", "symbol2"]
 ```
-```
+
+```ruby
 [:symbol, :symbol2].collect(&:to_s)
 => ["symbol", "symbol2"]
 ```
@@ -72,11 +75,13 @@ Returns a new array with the results of running block once for every element in 
 ### select
 
 Select elements in your collection that match a criteria.
-```
+
+```ruby
 (1..6).select { |a| a.even? }
 => [2, 4, 6]
 ```
-```
+
+```ruby
 (1..6).select(&:even?)
 => [2, 4, 6]
 ```
@@ -85,13 +90,13 @@ Select elements in your collection that match a criteria.
 
 For sorted arrays, use `bsearch` instead of `find`.
 
-```
+```ruby
 sorted_items.bsearch { |n| n == 999999864 }
 ```
 
 Performance comparison:
 
-```
+```ruby
 sorted = (0..10_000_000).map { Random.rand(1_000_000_000)  }.sort
 
 Benchmark.measure { sorted_items.bsearch { |n| n == 999999864 } }.total
@@ -104,7 +109,8 @@ Benchmark.measure { sorted_items.find { |n| n == 999999864 } }.total
 
 ### map
 Map a function over a collection.
-```
+
+```ruby
 [ [1,2,3], [5, 7, 9], [11, 12] ].map do |items|
   items.find_all(&:even?)
 end
@@ -116,7 +122,7 @@ end
 Map a function over a collection and flatten the result by one-level.
 Equivalent to use `map` and then call `flatten` in the result.
 
-```
+```ruby
 [ [1,2,3], [5, 7, 9], [11, 12] ].flat_map do |items|
   items.find_all(&:even?)
 end
