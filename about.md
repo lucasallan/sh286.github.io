@@ -27,12 +27,12 @@ In 2008 I started my first job as a software developer.
 ### [PGP Public Key][mypgp]
 
 {% highlight bash %}
-➜  gpg --fingerprint 2528BB78 
+➜  gpg --fingerprint 39012D188 
 
-pub   4096R/2528BB78 2016-01-14
-      Key fingerprint = 1CDD 5F66 29BD 5DA6 0E5E  B55B 3590 028B 2528 BB78
-uid                  Lucas Amorim <lucasamorim@protonmail.com>
-sub   4096R/AFB42B35 2016-01-14
+pub   4096R/39012D18 2017-04-21
+      Key fingerprint = F20A 33A9 AACF F33C 81B8  3DA4 59E9 C92E 3901 2D18
+uid       [ultimate] Lucas Amorim <lucas@lucasamorim.ca>
+sub   4096R/046D7FB1 2017-04-21
 
 {% endhighlight %}
 
