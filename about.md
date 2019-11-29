@@ -6,13 +6,11 @@ description: ""
 
 ### {{ site.name }}
 
-Hi, my name is Lucas Amorim and I'm a backend software developer in Vancouver, Canada.
+Hi, my name is Lucas Amorim and I'm a penetration tester/backend software developer in Vancouver, Canada.
 
 My interest in computers started in 2003, when I was 15 years old and I found [Linux][conectiva] for the first time.
 
-I started my Bachelor's Degree in Computer Science in 2007.  That same year I also began my first job in IT as a sysadmin and released my first open source tool: [gtool][gtool]. 
-
-In 2008 I started my first job as a software developer.
+I started my Bachelor's Degree in Computer Science in 2007.  That same year I also began my first job in IT as a sysadmin/security analyst and released my first open source tool: [gtool][gtool]. 
 
 
 ### Open Source Projects
