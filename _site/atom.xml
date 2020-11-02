@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Lucas Amorim</title>
+ <link href="http://0.0.0.0:4000/atom.xml" rel="self"/>
+ <link href="http://0.0.0.0:4000/"/>
+ <updated>2020-11-01T20:55:51+00:00</updated>
+ <id>http://0.0.0.0:4000</id>
+ <author>
+   <name>Lucas Amorim</name>
+ </author>
+ 
+ 
+ 
+</feed>
